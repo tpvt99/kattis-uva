@@ -2,13 +2,18 @@
 
 int main()
 {
-    unsigned long long a, b;
-    while(scanf("%llu %llu", &a, &b) != EOF)
+    //unsigned long long a, b;
+    //while(scanf("%llu %llu", &a, &b) != EOF)
+    //{
+        //if (a > b)
+            //printf("%llu\n", a-b);
+        //else
+            //printf("%llu\n", b-a);
+    //}
+    long long int a, b;
+    while (scanf("%lld %lld", &a, &b) != EOF)
     {
-        if (a > b)
-            printf("%llu\n", a-b);
-        else
-            printf("%llu\n", b-a);
+        printf("%lld\n", std::abs(a-b));
     }
     return 0;
 }
