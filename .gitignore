@@ -1,1 +1,4 @@
 build/*
+out
+in.txt
+myout.txt
