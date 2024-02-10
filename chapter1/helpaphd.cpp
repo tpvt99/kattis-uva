@@ -1,14 +1,21 @@
 #include <iostream>
+#include <cstring>
 
 int main() {
     int TC;
-    scanf("%d", &TC);
+    scanf("%d\n", &TC);
     while (TC-- > 0) {
-        if (scanf("P=NP\n") == 0) {
+        int maxlength = 10;
+        char str[maxlength];
+        fgets(str, maxlength, stdin);
+        // Remove \n
+        str[strlen(str)-1] = '\0';
+        if (strcmp(str, "P=NP") == 0)
+        {
             printf("skipped\n");
         } else {
             int a, b;
-            scanf("%d+%d\n", &a, &b);
+            sscanf(str, "%d+%d", &a, &b);
             printf("%d\n", a+b);
         }
     }
