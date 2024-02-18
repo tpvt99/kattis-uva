@@ -1,12 +1,16 @@
 #include <iostream>
-#include <cstdlib>
 #include <cstring>
 
 int main() {
-    char *c = (char *) malloc(sizeof(char) * (1000000+1));
-    while (scanf("%[0-9]*", c) != 0) {
+    char c[1000000+1];
+    while (scanf("%[0-9]\n", c) != 0) {
+        // Very special case
+        if (strcmp(c, "1") == 0){
+            printf("1\n");
+            continue;
+        }
+
         int count = 1;
-        scanf("\n");
         while (strlen(c) > 1) {
             int temp = strlen(c);
             snprintf(c, sizeof(c), "%d", temp);
