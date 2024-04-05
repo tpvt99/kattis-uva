@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <map>
 
 int main() {
@@ -10,22 +10,19 @@ int main() {
         scanf("%d", &temp);
         // If the different height with no arrow, must adding, and decrease because this baloon is shot
         if (heightFreq.find(temp) == heightFreq.end()) {
-            heightFreq[temp]+=1;
+            heightFreq[temp-1] += 1;
         } else {
-            int freq = heightFreq[temp];
-            freq--;
-            if (freq == 0) {
+            // If the arrow is at height, then minus arrow now
+            heightFreq[temp] -= 1;
+            if (heightFreq[temp] == 0)
                 heightFreq.erase(temp);
-                heightFreq[temp]+=1;
-            } else {
-                heightFreq[temp]-=1;
-                heightFreq[temp]+=1;
-            }
+            // Then add the next arrow at below height
+            heightFreq[temp-1] += 1;
         }
     }
     int answer = 0;
     for (auto it = heightFreq.begin(); it != heightFreq.end(); it++)
         answer += it->second;
-    printf("%d\n", answer);
-    return 1;
+    printf("%d", answer);
+    return 0;
 }
