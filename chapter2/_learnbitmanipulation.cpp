@@ -13,6 +13,8 @@ using namespace std;
 #define setAll(S, n) (!(S&(S-1)))
 
 #define isPowerOfTwo(S) (S == (S & -S))
+#define turnOffLastBit(S) (S&(S-1)) // last bit is first 1 from right-to-left
+#define turnOnLastZero(S) (S|(S+1))// last 0 is first 0 from right-to-left
 
 void printSet(int vS) {
     printf("S = %2d = ", vS);
